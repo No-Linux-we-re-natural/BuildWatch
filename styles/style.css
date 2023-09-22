@@ -4,6 +4,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Montserrat';
+    color: 202020;
 }
 body {
     display: flex;
@@ -20,7 +21,6 @@ body {
     justify-content: space-between;
     padding: 10px 0;
     background-color: white;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 main {
     width: 100%;
