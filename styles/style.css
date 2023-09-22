@@ -19,6 +19,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
+    background-color: white;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 main {
@@ -67,7 +68,7 @@ main > h1 {
     display: flex;
     align-items: center;
     background-color: white;
-    border-radius: 1.3rem;
+    border-radius: 1rem;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     padding: 0 10px;
