@@ -1,0 +1,87 @@
+h1{
+	font-size: 64px;
+	cursor: default;
+}
+
+.button_link{
+	text-decoration: none;
+	color: #202020;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	border-radius: 12px;
+	border: 3px solid #202020;
+	background: #FFF;
+	padding: 10px;
+	padding-left: 170px;
+	padding-right: 170px;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.logo_cont{
+	margin-right: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+}
+
+.bread_road{
+	color: #828282;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: normal;
+	cursor: default;
+}
+
+.main_card_manu{
+	display: flex;
+	flex-direction: column;
+}
+.main_card_manu h2{
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	margin-left: 25px;
+	padding-bottom: 50px;
+}
+
+.card{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	background-color: white;
+	border-radius: 12px;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	transition: 250ms;
+}
+.card:hover{
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
+}
+
+.card p {
+	color: #000;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	margin-top: auto;
+	padding-bottom: 5px;
+}
+
+.card_pool{
+	display: flex;
+}
+
+.card_menu{
+	margin-left: 25px;
+	width: 250px;
+	height: 250px;
+}
+.card_menu img{
+	padding-top: 30px;
+	width: 85px;
+}
