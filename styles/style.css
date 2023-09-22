@@ -5,6 +5,12 @@
     box-sizing: border-box;
     font-family: 'Montserrat';
 }
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+	background-color: #E9E9E9;
+}
 .navbar {
     width: 80px;
     height: 100vh;
@@ -15,6 +21,65 @@
     padding: 10px 0;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
-body{
-	background-color: #E9E9E9;
+main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px 20px;
+    gap: 100px;
+}
+main > h1 {
+    font-size: 48px;
+    align-self: flex-start;
+}
+.container_projects {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.projects > h2 {
+    font-size: 38px;
+}
+.create_project {
+    border: 3px solid black;
+    font-weight: 600;
+    transition: all 500ms ease-in-out;
+}
+.create_project:hover {
+    background-color: black;
+    color: white;
+    transition: all 500ms ease-in-out;
+}
+.project {
+    cursor: pointer;
+    width: 500px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 1.3rem;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding: 0 10px;
+    font-size: 22px;
+}
+.active_project {
+    width: 1000px;
+    height: 650px;
+    background-color: white;
+    border-radius: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
