@@ -1,8 +1,3 @@
-h1{
-	font-size: 64px;
-	cursor: default;
-}
-
 .button_link{
 	text-decoration: none;
 	color: #202020;
@@ -17,22 +12,6 @@ h1{
 	padding-left: 170px;
 	padding-right: 170px;
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.logo_cont{
-	margin-right: 80%;
-	display: flex;
-	flex-direction: column;
-	justify-content: left;
-}
-
-.bread_road{
-	color: #828282;
-	font-size: 24px;
-	font-style: normal;
-	font-weight: 300;
-	line-height: normal;
-	cursor: default;
 }
 
 .main_card_manu{
@@ -75,7 +54,9 @@ h1{
 .card_pool{
 	display: flex;
 }
-
+.card_pool a {
+	text-decoration: none;
+}
 .card_menu{
 	margin-left: 25px;
 	width: 250px;

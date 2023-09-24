@@ -1,0 +1,52 @@
+.status_container {
+    width: 100%;
+    max-width: 1900px;
+    padding: 0 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.status_header {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    gap: 20px;
+}
+.status_header > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.status_header > div > button {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.status_header > div > button::after {
+    color: black;
+    font-size: 32px;
+    content: ' \2716';
+}
+.status_graph {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}

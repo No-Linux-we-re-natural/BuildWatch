@@ -7,39 +7,71 @@
     color: #202020;
 }
 body {
+    width: 100%;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
 	background-color: #E9E9E9;
 }
 .navbar {
-    width: 80px;
+    position: fixed;
+    width: 70px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 3px;
     background-color: white;
 }
 main {
     width: 100%;
+    max-width: 1840px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    padding: 10px 20px;
+    padding: 10px 0;
     gap: 100px;
+    transform: translateX(70px);
 }
 main > h1 {
     font-size: 48px;
     align-self: flex-start;
 }
+.logo_cont {
+	display: flex;
+	flex-direction: column;
+	justify-content: left;
+    align-self: flex-start;
+    transform: translateX(100px);
+}
+.logo_cont h1 {
+	font-size: 64px;
+	cursor: default;
+}
+.logo_cont > .breadcrumb {
+	list-style: none;
+    margin-left: 4px;
+}
+.logo_cont > .breadcrumb li, a {
+    display: inline;
+    text-decoration: none;
+    font-size: 20px;
+    color: gray;
+}
+.logo_cont > .breadcrumb li+li:before {
+    content: "/\00a0";
+}
+.logo_cont > .breadcrumb > .active_breadcrumb a {
+    text-decoration: underline;
+}
 .container_projects {
     width: 100%;
+    max-width: 1900px;
     display: flex;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 100px;
 }
 .projects {
     display: flex;
@@ -75,7 +107,8 @@ main > h1 {
     font-size: 22px;
 }
 .active_project {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     height: 650px;
     background-color: white;
     border-radius: 3rem;
@@ -136,84 +169,4 @@ main > h1 {
 .selected_project > a > button:hover {
     background-color: rgb(240, 240, 240);
     transition: all 200ms ease-in-out;
-}
-.container_materials {
-    width: 100%;
-    max-width: 1620px;
-    margin: 0 auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 50px;
-}
-.table_header {
-    width: 100%;
-    max-width: 1450px;
-    margin: 0 auto;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-.container_materials button {
-    cursor: pointer;
-    width: 65px;
-    height: 65px;
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    font-size: 36px;
-}
-.table_header_name {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    font-size: 20px;
-    padding: 18px 20px;
-}
-.table_materials {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.table_materials_row {
-    width: 100%;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.material_id {
-    width: 65px;
-    height: 65px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-.material_info {
-    width: 100%;
-    max-width: 1450px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 18px 20px;
-    font-size: 20px;
-    border-radius: 1rem;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
