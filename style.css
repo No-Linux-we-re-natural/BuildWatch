@@ -65,9 +65,9 @@ main > h1 {
 .logo_cont > .breadcrumb > .active_breadcrumb a {
     text-decoration: underline;
 }
-.container_projects {
+.container {
     width: 100%;
-    max-width: 1900px;
+    max-width: 1850px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;

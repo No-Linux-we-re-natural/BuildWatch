@@ -1,0 +1,29 @@
+.container_settings {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.container_settings h2 {
+    font-size: 32px;
+}
+.container_settings p {
+    font-size: 24px;
+}
+.container_settings button {
+    align-self: flex-end;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
