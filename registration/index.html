@@ -25,7 +25,42 @@
 		<input type="password" id="password" name="password" required placeholder="Введите новый пароль..."><br><br>
 		<input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Повторите пароль..."><br><br>
 
-		<input class="button_link" type="submit" value="Зарегистрироваться">
+		<input id="btn" class="button_link" type="submit" value="Зарегистрироваться">
 	</form>
 </body>
+<script>
+	let loginInput = document.querySelector('#login');
+	let emailInput = document.querySelector('#email');
+	let passInput = document.querySelector('#password');
+	let pass2Input = document.querySelector('#confirmPassword');
+	let btn = document.querySelector('#btn');
+
+	let login = '';
+	let email = '';
+	let pass = '';
+	let pass2 = '';
+
+	loginInput.oninput = () => login = loginInput.value;
+	emailInput.oninput = () => email = emailInput.value;
+	passInput.oninput = () => pass = passInput.value;
+	pass2Input.oninput = () => pass2 = pass2Input.value;
+
+	btn.onclick = async (event) => {
+		event.preventDefault();
+
+		if (!login || !email || !pass || !pass2) return;
+
+		if (pass != pass2) return;
+
+		const data = await (await fetch(`http://localhost:3000/oauth/?email=${email}&password=${pass}&name=${login}`)).json();
+
+		if (data.success) {
+			localStorage.setItem('token', data.token);
+		} else {
+			console.log('pipec')
+		}
+
+		document.location.href = '../';
+	}
+</script>
 </html>
