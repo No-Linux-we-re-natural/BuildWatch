@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<title>Регистрация</title>
+</head>
+<body>
+	 <header class="navbar">
+        <a href="../"><img src="../images/logo.svg" alt="Логотип"></a>
+        <a href="../settings/"><img src="../images/user.svg" alt="Настройки"></a>
+    </header>
+	<div class="logo_cont">
+        <h1>Регистрация</h1>
+    </div>
+	<form>
+		<label for="login">Логин:</label><br>
+		<input type="text" id="login" name="login" required placeholder="Введите ФИО..." onfocus="this.value=''" onblur="if(this.value==''){this.value='Введите ФИО...'}"><br><br>
+
+		<label for="email">E-mail:</label><br>
+		<input type="email" id="email" name="email" required placeholder="Введите почу E-mail..." onfocus="this.value=''" onblur="if(this.value==''){this.value='Введите почу E-mail...'}"><br><br>
+
+		<label for="password">Пароль:</label><br>
+		<input type="password" id="password" name="password" required placeholder="Введите новый пароль..."><br><br>
+		<input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Повторите пароль..."><br><br>
+
+		<input class="button_link" type="submit" value="Зарегистрироваться">
+	</form>
+</body>
+</html>

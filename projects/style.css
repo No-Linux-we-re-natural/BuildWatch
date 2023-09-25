@@ -23,9 +23,13 @@ body {
     padding: 3px;
     background-color: white;
 }
+.navbar img{
+    width: 64px;
+    height: auto;
+}
 main {
     width: 100%;
-    max-width: 1840px;
+    max-width: calc(100% - 70px);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -159,7 +163,7 @@ main > h1 {
     width: inherit;
     height: inherit;
     cursor: pointer;
-    border: none;
+    border: 3px solid black;
     border-radius: 1rem;
     font-size: 28px;
     background-color: white;
@@ -167,6 +171,7 @@ main > h1 {
     transition: all 200ms ease-in-out;
 }
 .selected_project > a > button:hover {
-    background-color: rgb(240, 240, 240);
-    transition: all 200ms ease-in-out;
+    background-color: black;
+    color: white;
+    transition: all 500ms ease-in-out;
 }

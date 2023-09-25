@@ -1,0 +1,50 @@
+.container_relationship {
+    width: 100%;
+    max-width: calc(100% - 210px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.relationship {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.row_info {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+}
+.name {
+    width: 20%;
+}
+.status {
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.status span {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(255, 196, 0);
+    border-radius: 100%;
+}
+.units {
+    width: 20%;
+    text-align: center;
+}
+.cena {
+    font-size: 24px;
+    text-align: right;
+}

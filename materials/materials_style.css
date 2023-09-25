@@ -1,6 +1,6 @@
 .container_materials {
     width: 100%;
-    max-width: 1620px;
+    max-width: calc(100% - 210px);
     margin: 0 auto;
     height: auto;
     display: flex;
@@ -20,19 +20,26 @@
 }
 .table_header {
     width: 100%;
-    /* max-width: 1450px; */
     height: 80px;
-    padding-left: 85px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
 }
+.table_header button:hover{
+    background-color: black;
+    color: white;
+    transition: all 500ms ease-in-out;
+}
+.id {
+    width: 65px;
+    height: 65px;
+}
 .table_header_name {
     width: 100%;
+    max-width: calc(100% - 200px);
     height: 100%;
     display: flex;
-    max-width: 1450px;
     align-items: center;
     justify-content: space-between;
     background-color: white;
@@ -47,6 +54,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.table_materials button:hover{
+    background-color: black;
+    color: white;
+    transition: all 500ms ease-in-out;
 }
 .table_materials_row {
     width: 100%;
@@ -68,7 +80,7 @@
 }
 .material_info {
     width: 100%;
-    max-width: 1450px;
+    max-width: calc(100% - 200px);
     height: 100%;
     display: flex;
     align-items: center;
@@ -107,5 +119,5 @@
 }
 .table_header_name p:nth-child(6),
 .material_info p:nth-child(6) {
-    width: 80px;
+    width: 120px;
 }
