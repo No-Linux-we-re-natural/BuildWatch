@@ -25,7 +25,7 @@ body {
 }
 main {
     width: 100%;
-    max-width: 1840px;
+    max-width: calc(100% - 70px);
     display: flex;
     align-items: center;
     justify-content: space-around;

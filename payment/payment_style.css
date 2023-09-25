@@ -1,0 +1,42 @@
+.container_payment {
+    width: 100%;
+    max-width: calc(100% - 210px);
+    height: auto;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+}
+.row_header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 28px;
+}
+.row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.row_header p:nth-child(1),
+.row p:nth-child(1) {
+    width: 60%;
+}
+.row_header p:nth-child(2),
+.row p:nth-child(2) {
+    width: 20%;
+    text-align: center;
+}
+.row_header p:nth-child(3),
+.row p:nth-child(3) {
+    width: 20%;
+    text-align: center;
+}
