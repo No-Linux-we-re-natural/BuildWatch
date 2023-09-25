@@ -24,6 +24,7 @@ import * as dotenv from 'dotenv';
  * 1 - Ждет оплаты
  * 2 - Ждет поступления материала
  * 3 - Ждет окончания работы
+ * 4 - Done
  * 
  * @typedef {{
  * 		payment_date: number | null
@@ -35,10 +36,10 @@ import * as dotenv from 'dotenv';
  * @typedef {{
  * 		name: string
  * 		worker_name: string
- * 		type: 'Материал' | 'Работа'
+ * 		type: 'material' | 'work'
  * 		units: string
  * 		provider: string
- * 		status: 1 | 2 | 3
+ * 		status: 1 | 2 | 3 | 4
  * 		actual: Payment
  * 		factually: Payment | {}
  * 		price: number

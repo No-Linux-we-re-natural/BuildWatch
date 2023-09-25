@@ -3,42 +3,43 @@
 2. npm run start
 
 # api
+
 # get /oauth/register 
 
-# query
+query
 1. name - String
 2. email -  String
 3. password - String
-# returns token
+returns token
 
 # get /oauth
-# query
+query
 1. email - String
 2. password - String
 
-# returns token
+returns token
 
 # get /project
-# query
+query
 1. id - number
 
-# returns Project
+returns Project
 
 # post /project
-# body
+body
 {
     name: String
 }
 
-# returns Success 
+returns Success 
 
 # get /project/add_user
-# query
+query
 1. id - Number (project id)
 2. user_id - Number
 
 # post /project/create_product
-# body
+body
 {
     id: Number
     begin_date: Number
@@ -53,14 +54,14 @@
     type: 'Материал' | 'Работа'
 }
 
-# returns Success 
+returns Success 
 
-# post /project/change_product
-# body
+#post /project/change_product
+body
 {
     id: Number
 } & {
-    product_status: 1 | 2 | 3
+    product_status: 1 | 2 | 3 | 4
     product_id: Number
 } | {
     product_id: Number
@@ -72,14 +73,19 @@
     }
 }
 
-# returns Success
+returns Success
 
 # post /project/project_status
-# body
+body
 {
     id: Number
     status: 'processing' | 'final'
 
 }
 
-# returns Success
+returns Success
+
+# get /dependencies
+req
+1. id - Number
+returns Product[]

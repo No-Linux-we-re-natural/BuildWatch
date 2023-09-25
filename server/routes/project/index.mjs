@@ -11,7 +11,7 @@ function generateId() {
  * @param {string} token 
  * @returns {Promise<import('../../app.mjs').User>}
  */
-async function getUser(token) {
+export async function getUser(token) {
     /**@type {import('mongodb').Collection<import('../../app.mjs').User>} */
     const mongo = (await getMongoDbInstance()).collection('users');
 
@@ -200,7 +200,7 @@ function route(fastify, options, done) {
         if (typeof req.body.type != 'string')
             return rep.send({error: "Bad type"});
 
-        if (req.body.type != 'материал' && req.body.type != 'работа') return {error: "Bad type"}
+        if (req.body.type != 'material' && req.body.type != 'work') return {error: "Bad type"}
 
         const project = await projects.findOne({id: +req.body.id});
         if (!project) return {error: "Bad project id"}
@@ -263,7 +263,7 @@ function route(fastify, options, done) {
         if ('product_status' in req.body && 'product_id' in req.body) {
             if (typeof +req.body.product_status != 'number') return {error: "Bad product_status"};
             if (typeof +req.body.product_id != 'number') return {error: "Bad product_id"};
-            if (+req.body.product_status == 1 || +req.body.product_status == 2 || +req.body.product_status == 3) return {error: "Bad product_status"};
+            if (+req.body.product_status == 1 || +req.body.product_status == 2 || +req.body.product_status == 3 || +req.body.product_status == 4) return {error: "Bad product_status"};
             const produtc = project.products.find(e => e.id == +req.body.product_id);
 
             if (!produtc) return {error: 'bad product id'};
