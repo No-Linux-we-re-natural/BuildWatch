@@ -14,6 +14,12 @@
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+.button_link:hover{
+	background-color: black;
+    color: white;
+    transition: all 500ms ease-in-out;
+}
+
 .main_card_manu{
 	display: flex;
 	flex-direction: column;
@@ -58,8 +64,8 @@
 }
 .card_menu{
 	gap: 30px;
-	width: 250px;
-	height: 250px;
+	width: 200px;
+	height: 200px;
 }
 .card_menu img{
 	padding-top: 30px;

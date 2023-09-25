@@ -26,6 +26,11 @@
     justify-content: space-between;
     gap: 20px;
 }
+.table_header button:hover{
+    background-color: black;
+    color: white;
+    transition: all 500ms ease-in-out;
+}
 .id {
     width: 65px;
     height: 65px;
@@ -49,6 +54,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.table_materials button:hover{
+    background-color: black;
+    color: white;
+    transition: all 500ms ease-in-out;
 }
 .table_materials_row {
     width: 100%;

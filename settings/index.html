@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/projects/style.css">
     <link rel="stylesheet" href="settings_style.css">
-    <title>Настройки</title>
+    <title>Вход</title>
 </head>
 <body>
     <header class="navbar">
         <a href="/index.html"><img src="/images/logo.svg" alt="Логотип"></a>
-        <a href="/settings/index.html"><img src="/images/settings.svg" alt="Настройки"></a>
+        <a href="/settings/index.html"><img src="/images/user.svg" alt="Пользователь"></a>
     </header>
     <main>
         <div class="logo_cont">
-            <h1>Настройки</h1>
+            <h1>Вход</h1>
         </div>
         <div class="container_settings">
-            <h2>Логин</h2>
-            <p>ФИО</p>
-            <p>e-mail</p>
-            <p>Телефон</p>
-            <button>Редактировать</button>
+            <h2>E-mail:</h2>
+            <input type="text" name="email" placeholder="Введите e-mail...">
+            <h2>Пароль:</h2>
+            <input type="text" name="password" placeholder="Введите пароль...">
+            <button>Войти</button>
+            <a href="/registration/index.html"><button>Зарегистрироваться</button></a>
         </div>
     </main>
 </body>
