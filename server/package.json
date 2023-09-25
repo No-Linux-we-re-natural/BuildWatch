@@ -1,0 +1,27 @@
+{
+  "name": "buildwatch-server",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "main": "app.mjs",
+  "scripts": {
+    "start": "fastify start -l info app.mjs",
+    "dev": "fastify start -w -l info -P app.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/sensible": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/node": "^20.6.5",
+    "fastify": "^4.0.0",
+    "fastify-cli": "^5.8.0",
+    "fastify-plugin": "^4.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.1.0"
+  },
+  "devDependencies": {
+    "tap": "^16.1.0"
+  }
+}
