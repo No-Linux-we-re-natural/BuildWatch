@@ -1,5 +1,6 @@
 import { fastifyAutoload } from "@fastify/autoload";
 import * as dotenv from 'dotenv';
+import cors from '@fastify/cors'
 
 /**
  * @typedef {{
@@ -53,6 +54,11 @@ import * as dotenv from 'dotenv';
  */
 const app = async (fastify, options) => {
 	dotenv.config();
+
+	fastify.register(cors, {
+		origin: '*',
+		methods: 'GET,PUT,POST,DELETE',
+	})
 
 	fastify.register(fastifyAutoload, {
 		dir: './routes'

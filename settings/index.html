@@ -18,12 +18,39 @@
         </div>
         <div class="container_settings">
             <h2>E-mail:</h2>
-            <input type="text" name="email" placeholder="Введите e-mail...">
+            <input type="text" id="email" placeholder="Введите e-mail...">
             <h2>Пароль:</h2>
-            <input type="text" name="password" placeholder="Введите пароль...">
-            <button>Войти</button>
+            <input type="text" id="password" placeholder="Введите пароль...">
+            <button id="enter">Войти</button>
             <a href="../registration/"><button>Зарегистрироваться</button></a>
         </div>
     </main>
 </body>
+<script>
+    let btn = document.querySelector('#enter');
+    let passInput = document.querySelector('#password');
+    let emailImput = document.querySelector('#email')
+
+    let pass = '';
+    let email = '';
+
+    passInput.oninput = () => {
+        pass = passInput.value;
+    }
+    emailImput.oninput = () => {
+        email = emailImput.value;
+    }
+
+    btn.onclick = async () => {
+        if (pass.length == 0 || email.length == 0) return;
+        const data = await (await fetch(`http://localhost:3000/oauth/?email=${email}&password=${pass}`)).json();
+
+        if (data.succes) {
+            localStorage.setItem('token', data.token);
+            document.location.href = '../';
+        } else {
+            console.log('pipec');
+        }
+    }
+</script>
 </html>
