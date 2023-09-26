@@ -52,15 +52,17 @@
 
 		if (pass != pass2) return;
 
-		const data = await (await fetch(`http://localhost:3000/oauth/?email=${email}&password=${pass}&name=${login}`)).json();
+		const data = await (await fetch(`http://localhost:3000/oauth/register?email=${email}&password=${pass}&name=${login}`)).json();
 
+		console.log(data);
+		
 		if (data.success) {
 			localStorage.setItem('token', data.token);
 		} else {
 			console.log('pipec')
 		}
 
-		document.location.href = '../';
+		// document.location.href = '../';
 	}
 </script>
 </html>

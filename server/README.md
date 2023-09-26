@@ -1,6 +1,8 @@
 # to start project ->
-1. npm i
-2. npm run start
+1. download & start mongo
+2. npm i
+3. npm run start
+4. вы прекрасны
 
 # api
 
@@ -18,6 +20,10 @@ query
 2. password - String
 
 returns token
+
+# get /project/all
+
+returns Project[]
 
 # get /project
 query
@@ -51,7 +57,7 @@ body
     provider: String
     units: String
     worker_name: String
-    type: 'Материал' | 'Работа'
+    type: 'material' | 'work'
 }
 
 returns Success 

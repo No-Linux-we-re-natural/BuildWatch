@@ -31,6 +31,19 @@ export async function getUser(token) {
  * @param {{}} options 
  */
 function route(fastify, options, done) {
+    fastify.get('/all', async (req, rep) => {
+        if (!req.headers.authorization) return rep.send(403);
+        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+
+
+        /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
+        const projects = (await getMongoDbInstance()).collection('projects');
+
+        const user = await getUser(req.headers.authorization);
+
+        return projects.find({$or: [{owner_id: user.id}, {users_id: {$in: [user.id]}}]}).toArray();
+    });
+
     fastify.get('/', async (req, rep) => {
         if (!req.headers.authorization) return rep.send(403);
         if (!(await checkToken(req.headers.authorization))) return rep.send(403);
