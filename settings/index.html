@@ -20,7 +20,7 @@
             <h2>E-mail:</h2>
             <input type="text" id="email" placeholder="Введите e-mail...">
             <h2>Пароль:</h2>
-            <input type="text" id="password" placeholder="Введите пароль...">
+            <input type="password" id="password" placeholder="Введите пароль...">
             <button id="enter">Войти</button>
             <a href="../registration/"><button>Зарегистрироваться</button></a>
         </div>
@@ -49,7 +49,7 @@
             localStorage.setItem('token', data.token);
             document.location.href = '../';
         } else {
-            console.log('pipec');
+            console.log(data);
         }
     }
 </script>

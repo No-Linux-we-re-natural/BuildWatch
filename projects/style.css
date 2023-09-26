@@ -175,3 +175,39 @@ main > h1 {
     color: white;
     transition: all 500ms ease-in-out;
 }
+.new_project {
+    width: 100%;
+    max-width: 1000px;
+    height: 650px;
+    background-color: white;
+    border-radius: 3rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+.new_project input {
+    width: 40%;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 24px;
+}
+.new_project button {
+    cursor: pointer;
+    width: 200px;
+    height: auto;
+    padding: 5px;
+    border: 3px solid black;
+    border-radius: 0.5rem;
+    font-size: 28px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 200ms ease-in-out;
+}
+.new_project button:hover {
+    background-color: black;
+    color: white;
+    transition: all 500ms ease-in-out;
+}

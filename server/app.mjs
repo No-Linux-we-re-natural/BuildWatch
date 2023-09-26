@@ -45,6 +45,7 @@ import cors from '@fastify/cors'
  * 		factually: Payment | {}
  * 		price: number
  * 		id: number
+ * 		count: number
  * }} Product
  */
 

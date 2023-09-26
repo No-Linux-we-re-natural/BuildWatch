@@ -17,12 +17,12 @@
     		<h1>Даты</h1>
     		<ul class="breadcrumb">
                 <li><a href="../">Главная</a></li>
-                <li><a href="../menu/">Меню</a></li>
+                <li><a href="../menu/" id="menu">Меню</a></li>
                 <li class="active_breadcrumb"><a href="#!">Даты</a></li>
             </ul>
     	</div>
         <div class="container_dates">
-            <div class="container_date">
+            <div class="container_date" id="material">
                 <h1>Поставка материалов</h1>
                 <div class="dates">
                     <div class="dates_header">
@@ -36,9 +36,9 @@
                         <p>03.10.2023</p>
                     </div>
                 </div>
-                <button>Подробнее</button>
+                <!-- <button>Подробнее</button> -->
             </div>
-            <div class="container_date">
+            <div class="container_date" id="work">
                 <h1>Начало/конец работы</h1>
                 <div class="dates">
                     <div class="dates_header">
@@ -52,10 +52,11 @@
                         <p>07.10.2023</p>
                     </div>
                 </div>
-                <button>Подробнее</button>
+                <!-- <button>Подробнее</button> -->
             </div>
         </div>
     </main>
 </body>
-    <script src="./scripts/checker.mjs" type="module"></script>
+    <script src="../scripts/checker.mjs" type="module"></script>
+    <script type="module" src="./script.mjs"></script>
 </html>

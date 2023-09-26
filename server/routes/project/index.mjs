@@ -51,10 +51,9 @@ function route(fastify, options, done) {
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');
-        
+
         if (typeof req.query != 'object') {
-            {error: 403};
-            return;
+            return {error: 403};
         }
 
         if (!('id' in req.query))
@@ -82,9 +81,12 @@ function route(fastify, options, done) {
         /**@type {import('mongodb').Collection<import('../../app.mjs').User>} */
         const users = (await getMongoDbInstance()).collection('users');
 
+        if (typeof req.body == 'string') {
+            req.body = JSON.parse(req.body);
+        }
+
         if (typeof req.body != 'object') {
-            {error: 403};
-            return;
+            return  {error: 403};
         }
 
         const user = await getUser(req.headers.authorization);
@@ -161,9 +163,14 @@ function route(fastify, options, done) {
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');
 
+        try {
+            if (typeof req.body == 'string') req.body = JSON.parse(req.body)
+        } catch (error) {
+            
+        }
+        
         if (typeof req.body != 'object') {
-            {error: 403};
-            return;
+            return {error: 403};
         }
 
         if (!('id' in req.body))
@@ -188,6 +195,8 @@ function route(fastify, options, done) {
             return rep.send({error: "Missing worker_name"});
         if (!('type' in req.body))
             return rep.send({error: "Missing worker_name"});
+        if (!('count' in req.body))
+            return {error: "Missing count"}
         
         
         if (typeof +req.body.id != 'number')
@@ -212,12 +221,13 @@ function route(fastify, options, done) {
             return rep.send({error: "Bad worker_name"});
         if (typeof req.body.type != 'string')
             return rep.send({error: "Bad type"});
-
+        
         if (req.body.type != 'material' && req.body.type != 'work') return {error: "Bad type"}
 
         const project = await projects.findOne({id: +req.body.id});
         if (!project) return {error: "Bad project id"}
         const user = await getUser(req.headers.authorization);
+
 
         if (!project.users_id.includes(user.id) && (project.owner_id != user.id))
             return rep.send({error: "Вы не можете редактировать этот проект"});
@@ -238,7 +248,8 @@ function route(fastify, options, done) {
             status: 1,
             type: req.body.type,
             units: req.body.units,
-            worker_name: req.body.worker_name
+            worker_name: req.body.worker_name,
+            count: +req.body.count
         }
 
         project.products.push(material);
@@ -256,8 +267,7 @@ function route(fastify, options, done) {
         const projects = (await getMongoDbInstance()).collection('projects');
 
         if (typeof req.body != 'object') {
-            {error: 403};
-            return;
+            return {error: 403};
         }
 
         if (!('id' in req.body))

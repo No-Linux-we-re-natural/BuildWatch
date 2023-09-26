@@ -88,7 +88,7 @@ function route(fastify, options, done) {
 
         const user = mongo.findOne({email, password});
 
-        if (user) return rep.send({succes: true, token: jwt.sign({email}, SECRET)});
+        if (user) return rep.send({success: true, token: jwt.sign({email}, SECRET)});
         else return rep.send({error: "Неправильное имя пользователя или пароль"});
     });
 
