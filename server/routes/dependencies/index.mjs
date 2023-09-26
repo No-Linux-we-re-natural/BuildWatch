@@ -10,8 +10,8 @@ import { getUser } from '../project/index.mjs';
 function route(fastify, options, done) {
 
     fastify.get('/', async (req, rep) => {
-        if (!req.headers.authorization) return rep.send(403);
-        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');

@@ -32,8 +32,8 @@ export async function getUser(token) {
  */
 function route(fastify, options, done) {
     fastify.get('/all', async (req, rep) => {
-        if (!req.headers.authorization) return rep.send(403);
-        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
 
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
@@ -45,15 +45,15 @@ function route(fastify, options, done) {
     });
 
     fastify.get('/', async (req, rep) => {
-        if (!req.headers.authorization) return rep.send(403);
-        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
 
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');
         
         if (typeof req.query != 'object') {
-            rep.send(403);
+            {error: 403};
             return;
         }
 
@@ -74,8 +74,8 @@ function route(fastify, options, done) {
     })
 
     fastify.post('/', async (req, rep) => {
-        if (!req.headers.authorization) return rep.send(403);
-        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');
@@ -83,7 +83,7 @@ function route(fastify, options, done) {
         const users = (await getMongoDbInstance()).collection('users');
 
         if (typeof req.body != 'object') {
-            rep.send(403);
+            {error: 403};
             return;
         }
 
@@ -110,12 +110,12 @@ function route(fastify, options, done) {
 
         users.updateOne({email: user.email}, {$set: {allowedProjects: user.allowedProjects}});
 
-        return {succes: true};
+        return {success: true};
     })
 
     fastify.get('/add_user', async (req, rep) => {
-        if (!req.headers.authorization) return rep.send(403);
-        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');
@@ -151,18 +151,18 @@ function route(fastify, options, done) {
         
         projects.updateOne({id: project.id}, {$set: {users_id: project.users_id, count_workers: project.count_workers+1}});
 
-        return {succes: true}
+        return {success: true}
     })
 
     fastify.post('/create_product', async (req, rep) => {
-        if (!req.headers.authorization) return rep.send(403);
-        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');
 
         if (typeof req.body != 'object') {
-            rep.send(403);
+            {error: 403};
             return;
         }
 
@@ -249,14 +249,14 @@ function route(fastify, options, done) {
     })
 
     fastify.post('change_product', async (req, rep) => {
-        if (!req.headers.authorization) return rep.send(403);
-        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');
 
         if (typeof req.body != 'object') {
-            rep.send(403);
+            {error: 403};
             return;
         }
 
@@ -285,7 +285,7 @@ function route(fastify, options, done) {
 
             await projects.updateOne({id: project.id}, {$set: project.products});
 
-            return {succes: true};
+            return {success: true};
         } else if ('factually' in req.body && 'product_id' in req.body) {
             if (typeof +req.body.product_id != 'number') return {error: "Bad product_id"};
             if (typeof req.body.factually != 'object') return {error: "Bad factually"};
@@ -314,14 +314,14 @@ function route(fastify, options, done) {
     })
 
     fastify.post('project_status', async (req, rep) => {
-        if (!req.headers.authorization) return rep.send(403);
-        if (!(await checkToken(req.headers.authorization))) return rep.send(403);
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
 
         /**@type {import('mongodb').Collection<import('../../app.mjs').Project>} */
         const projects = (await getMongoDbInstance()).collection('projects');
 
         if (typeof req.body != 'object') {
-            rep.send(403);
+            {error: 403};
             return;
         }
 

@@ -45,7 +45,7 @@
         if (pass.length == 0 || email.length == 0) return;
         const data = await (await fetch(`http://localhost:3000/oauth/?email=${email}&password=${pass}`)).json();
 
-        if (data.succes) {
+        if (data.success) {
             localStorage.setItem('token', data.token);
             document.location.href = '../';
         } else {

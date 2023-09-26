@@ -21,6 +21,10 @@ query
 
 returns token
 
+# get /oauth/verify
+
+returns Success || Error
+
 # get /project/all
 
 returns Project[]

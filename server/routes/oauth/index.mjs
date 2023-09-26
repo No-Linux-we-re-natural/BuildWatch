@@ -1,3 +1,5 @@
+import { checkToken } from './Guards.mjs';
+
 /**
  * TODO:
  * регистрация уникальных пользователей
@@ -89,6 +91,12 @@ function route(fastify, options, done) {
         if (user) return rep.send({succes: true, token: jwt.sign({email}, SECRET)});
         else return rep.send({error: "Неправильное имя пользователя или пароль"});
     });
+
+    fastify.get('/verify', async (req, rep) => {
+        if (!req.headers.authorization) return {error: 403};
+        if (!(await checkToken(req.headers.authorization))) return {error: 403};
+        else return {success: true}
+    })
 
     done();
 }

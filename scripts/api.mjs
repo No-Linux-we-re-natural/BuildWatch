@@ -49,6 +49,12 @@ const base_api_url = 'http://localhost:3000';
 export class Api {
     constructor() {}
     /**
+     * @returns {String}
+     */
+    getToken() {
+        return localStorage.getItem('token');
+    }
+    /**
      * 
      * @param {string} login 
      * @param {string} email 
@@ -56,9 +62,13 @@ export class Api {
      * @returns {Promise<boolean>} 
      */
     async register(login, email, pass) {
-        const data = await (await fetch(`${base_api_url}/oauth/?email=${email}&password=${pass}&name=${login}`)).json();
+        const data = await (await fetch(`${base_api_url}/oauth/?email=${email}&password=${pass}&name=${login}`,{
+            headers: {
+                authorization: this.getToken()
+            }
+        })).json();
 
-        if (data.succes) {
+        if (data.success) {
             localStorage.setItem('token', data.token);
             return true;
         } else return false;
@@ -71,9 +81,13 @@ export class Api {
      * @returns {Promise<boolean>} 
      */
     async login(email, pass) {
-        const data = await (await fetch(`${base_api_url}/oauth/?email=${email}&password=${pass}`)).json();
+        const data = await (await fetch(`${base_api_url}/oauth/?email=${email}&password=${pass}`),{
+            headers: {
+                authorization: this.getToken()
+            }
+        }).json();
 
-        if (data.succes) {
+        if (data.success) {
             localStorage.setItem('token', data.token);
             return true;
         } else return false;
@@ -83,7 +97,11 @@ export class Api {
      *@returns {Promise<Project[]>} 
      */
     async getAllProjects() {
-        return await (await fetch(`${base_api_url}/project/all`)).json();
+        return await (await fetch(`${base_api_url}/project/all`),{
+            headers: {
+                authorization: this.getToken()
+            }
+        }).json();
     }
 
     /**
@@ -92,7 +110,11 @@ export class Api {
      * @returns {Promise<Project | null>} 
      */
     async getProject(id) {
-        const data = await (await fetch(`${base_api_url}/project?id=${id}`)).json();
+        const data = await (await fetch(`${base_api_url}/project?id=${id}`),{
+            headers: {
+                authorization: this.getToken()
+            }
+        }).json();
 
         if (data.error) return null;
         return data;
@@ -105,6 +127,9 @@ export class Api {
      */
     async createProject(name) {
         const data = await (await fetch(`${base_api_url}/project`,{
+            headers: {
+                authorization: this.getToken()
+            },
             method: "POST",
             body: JSON.stringify({
                 name
@@ -122,7 +147,11 @@ export class Api {
      * @returns {Promise<{error: string} | {success: true}>}
      */
     async addUserToProject(project_id, user_id) {
-        const data = await (await fetch(`${base_api_url}/project/add_user?id=${project_id}&user_id=${user_id}`)).json();
+        const data = await (await fetch(`${base_api_url}/project/add_user?id=${project_id}&user_id=${user_id}`),{
+            headers: {
+                authorization: this.getToken()
+            }
+        }).json();
 
         return data;
     }
@@ -146,6 +175,9 @@ export class Api {
      */
     async createProduct(opts) {
         const data = await (await fetch(`${base_api_url}/project/create_product`, {
+            headers: {
+                authorization: this.getToken()
+            },
             method: "POST",
             body: JSON.stringify(opts)
         })).json();
@@ -173,6 +205,9 @@ export class Api {
      */
     async changeProduct(opts) {
         const data = await (await fetch(`${base_api_url}/project/change_product`, {
+            headers: {
+                authorization: this.getToken()
+            },
             method: "POST",
             body: JSON.stringify(opts)
         })).json();
@@ -188,6 +223,9 @@ export class Api {
      */
     async changeProjectStatus(id, status) {
         const data = await (await fetch(`${base_api_url}/project_status`, {
+            headers: {
+                authorization: this.getToken()
+            },
             method: "POST",
             body: JSON.stringify({
                 id,
@@ -204,8 +242,26 @@ export class Api {
      * @returns  {Promise<{error: string} | Product[]>}
      */
     async getProjectDepencies(project_id) {
-        const data = await (await fetch(`${base_api_url}/dependencies`)).json();
+        const data = await (await fetch(`${base_api_url}/dependencies`),{
+            headers: {
+                authorization: this.getToken()
+            }
+        }).json();
 
         return data;
     }
+}
+
+/**
+ * @returns {Promise<boolean>}
+ */
+export async function verify() {
+    const data = await (await fetch(`${base_api_url}/oauth/verify`,{
+        headers: {
+            authorization: localStorage.getItem('token')
+        }
+    })).json() 
+
+    if (data.error) return false;
+    return true;
 }
